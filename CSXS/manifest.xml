@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest Version="6.0" ExtensionBundleId="saveobjects" ExtensionBundleVersion="1.5.8" ExtensionBundleName="SaveObjects"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ExtensionList>
+		<Extension Id="saveobjects" Version="1.5.8" />
+		<Extension Id="com.aescripts.saveobjects.about" Version="2.0.025" />
+	</ExtensionList>
+	<ExecutionEnvironment>
+		<HostList>
+			<Host Name="AEFT" Version="[13.0,99.0]" />
+		</HostList>
+		<LocaleList>
+			<Locale Code="All" />
+		</LocaleList>
+		<RequiredRuntimeList>
+			<RequiredRuntime Name="CSXS" Version="6.0" />
+		</RequiredRuntimeList>
+	</ExecutionEnvironment>
+	<DispatchInfoList>
+		<Extension Id="com.aescripts.saveobjects.about">
+			<DispatchInfo >
+				<Resources>
+					<MainPath>./dialog/dialog.html</MainPath>
+					<CEFCommandLine>
+						<Parameter>--enable-nodejs</Parameter>
+						<Parameter>--allow-file-access-from-files</Parameter>
+						<Parameter>--allow-file-access</Parameter>
+					</CEFCommandLine>
+				</Resources>
+				<Lifecycle>
+					<AutoVisible>true</AutoVisible>
+				</Lifecycle>
+				<UI>
+					<Type>Modeless</Type>
+					<Geometry>
+						<Size>
+							<Height>440</Height>
+							<Width>350</Width>
+						</Size>
+						<MaxSize>
+							<Height>500</Height>
+							<Width>350</Width>
+						</MaxSize>
+						<MinSize>
+							<Height>100</Height>
+							<Width>350</Width>
+						</MinSize>
+					</Geometry>
+				</UI>
+			</DispatchInfo>
+		</Extension>
+		<Extension Id="saveobjects">
+			<DispatchInfo >
+				<Resources>
+					<MainPath>./index.html</MainPath>
+					<ScriptPath>./jsx/hostscript.jsx</ScriptPath>
+					<CEFCommandLine>
+						<Parameter>--enable-nodejs</Parameter>
+						<Parameter>--allow-file-access-from-files</Parameter>
+						<Parameter>--allow-file-access</Parameter>
+					</CEFCommandLine>
+				</Resources>
+				<Lifecycle>
+					<AutoVisible>true</AutoVisible>
+				</Lifecycle>
+				<UI>
+					<Type>Panel</Type>
+					<Menu>SaveObjects</Menu>
+					<Geometry>
+						<Size>
+							<Height>200</Height>
+							<Width>600</Width>
+						</Size>
+						<!--<MinSize>
+                            <Height>550</Height>
+                            <Width>400</Width>
+                        </MinSize>
+                        <MaxSize>
+                            <Height>550</Height>
+                            <Width>400</Width>
+                        </MaxSize>-->
+
+					</Geometry>
+					<Icons>
+						<Icon Type="Normal">./icons/iconNormal.png</Icon>
+						<Icon Type="RollOver">./icons/iconRollover.png</Icon>
+						<Icon Type="Disabled">./icons/iconDisabled.png</Icon>
+						<Icon Type="DarkNormal">./icons/iconDarkNormal.png</Icon>
+						<Icon Type="DarkRollOver">./icons/iconDarkRollover.png</Icon>
+					</Icons>
+				</UI>
+			</DispatchInfo>
+		</Extension>
+		<Extension Id="com.aescripts.saveobjects.about">
+			<DispatchInfo >
+				<Resources>
+					<MainPath>./dialog/dialog.html</MainPath>
+					<CEFCommandLine>
+						<Parameter>--enable-nodejs</Parameter>
+						<Parameter>--allow-file-access-from-files</Parameter>
+						<Parameter>--allow-file-access</Parameter>
+					</CEFCommandLine>
+				</Resources>
+				<Lifecycle>
+					<AutoVisible>true</AutoVisible>
+				</Lifecycle>
+				<UI>
+					<Type>Modeless</Type>
+					<Geometry>
+						<Size>
+							<Height>440</Height>
+							<Width>350</Width>
+						</Size>
+						<MaxSize>
+							<Height>500</Height>
+							<Width>350</Width>
+						</MaxSize>
+						<MinSize>
+							<Height>100</Height>
+							<Width>350</Width>
+						</MinSize>
+					</Geometry>
+				</UI>
+			</DispatchInfo>
+		</Extension>
+	</DispatchInfoList>
+</ExtensionManifest>
