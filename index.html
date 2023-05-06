@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+          
+  
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
+    <title>Wookmark Simple Example</title>
+    <meta name="description" content="An very basic example of how to use the Wookmark jQuery plug-in.">
+    <meta name="author" content="Christoph Ono, Sebastian Helzle">
+  
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="/bower_components/normalize.css/normalize.css">
+  
+    <!-- Global CSS for the page and tiles -->
+    <link rel="stylesheet" href="css/main.css">
+  
+  </head>
+<html>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/styles.css">
+
+<body oncontextmenu="return false;" id="bodyLoad" style="overflow: scroll;">
+  <div  id ="containerNew" style="display: flex;background-color:rgb(37, 37, 37) ;position:absolute;top:30px;left:-5px;width:calc(100% + 0px);height:calc(100% - 40px);;overflow: scroll;">
+
+   
+
+
+</div>
+  <audio id="myAudio" >
+    <source src="d:/1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div id="div" onmouseleave="document.getElementById('div').style.display='none';" style=" z-index:9999999999999999999;width: fit-content;height: fit-content;padding:5px;padding-left: 15px; display: none; position: fixed;background-color: rgb(255, 255, 255);font-size: 3px;color: lightyellow; font:normal 2pt Arial; "> 
+    <ul>
+      <li><a id="delMenue" >Delete</a></li>
+      <li><a id="renameMenue" >Rename</a></li>
+      <li><a id="editSource">Edit source</a></li>
+      <li><a id="setThumb" title="Create a new thumbnail from workarea">Set thumbnail</a></li>
+      <li><a id="openLocation">Open location</a></li>
+    </ul>
+  </div>
+
+
+  <div id="divSave" onmouseleave="document.getElementById('divSave').style.display='none';" style=" z-index:9999999999999999999;width: fit-content;height: fit-content;padding:5px;padding-left: 15px;left: 0px;top: 0px; display: none; position: fixed;background-color: rgb(255, 255, 255);font-size: 3px;color: lightyellow; font:normal 2pt Arial; "> 
+
+    <ul id="enObj"> 
+      <li><a id="SaveLayers" >Save Layers</a></li>
+      <li><a id="SaveComposition" >Save Composition</a></li>
+      <hr>
+      <li><a id="SaveFont">Save Font</a></li>
+      <li><a id="SavePreset">Save Preset</a></li>
+      <li><a id="SaveMarkers">Save Marker</a></li>
+      <li><a id="SaveMasks">Save Masks</a></li>
+      <li><a id="SaveSpeed">Save Speed</a></li>
+      <li><a id="SaveExpression">Save Expression</a></li>
+      
+    </ul>
+    <ul><hr>
+      <li><a id="SaveCode">Save Codes</a></li>
+    </ul>
+    <hr>
+    <ul id="disObj" style="pointer-events:none;opacity:0.5;">
+ 
+    </ul>
+  
+  </div>
+
+
+  <div id="audioDBack" class="div2" onmouseleave="div2Leave();" style="display: none; opacity: 0.7;display: none;border-radius: 2px; position:fixed;background-color: rgb(37, 37, 37) ;  width:220px;height:10px;z-index: 0;top:500px;">
+    <div id="audioD" class="div3" style="pointer-events:none ; opacity: 0.5;display: none;border-radius: 2px; position:fixed;background-color: rgb(255, 255, 255) ;  width:22px;height:5px;z-index: 0;top:500px;">
+   
+    </div>
+  </div>
+
+
+<input type="text"  style="display: none;width:500px;height:25px;" id="folder"  value="0"  size="20">
+
+<input type="text"  style="display: none;width:500px;height:25px;" id="file"  value="0"  size="20">
+
+<input type="text"  style="display: none;width:500px;height:25px;" id="files"  value="0"  size="20">
+
+<input type="text" class="hostElt" style="display: none;width:50px;height:25px;" id="folderInfo"  value="0"  size="20">
+
+
+
+<input type="text" class="hostElt" style="display: none;width:50px;height:25px;" id="text_scriptPath"  value="0"  size="20"> 
+
+
+  <div id="select1" class="custom-select" style="display: none; position:fixed;top:50px ;z-index:1;width:calc(100% - 15px);"></div>
+
+<div id='show-label'></div>
+
+<div class="custom-select" style=" text-align: center; position:fixed ;z-index:1; top: 35px; border-bottom-left-radius : 5px;border-bottom-right-radius : 5px;background-color: #363636;width:calc(100% - 15px);">  </div>
+ 
+
+</div>   
+<div id="headerDiv" style="margin: 0px; padding: 0px; left:0px;top:0px;position: fixed;width:100%;height: 35px; background-color: rgb(37, 37, 37);">
+<img class="menue"   style="opacity:0.7; position:fixed; left:2px;top:10px;width: 23px;" type="image" src="icons/save.png"  id="btn_save" >
+
+<span id="dd"   style="left:29px;position:fixed;z-index:1;width:calc(100% - 85px);">
+</span>
+
+<img class="menue" style="width:13px;position:absolute;top:11px;right:21px;" title="Bookmarks" type="image" src="icons/bookmark0.png"  id="bookmark" >
+
+  <img class="menue" style="width:11px;position:absolute;top:11px;right:7px;" title="Create a new category" type="image" src="icons/add.png"  id="newFolder" >
+
+
+ <img class="menue" style="width:11px;position:absolute;top:21px;right:7px;" title="Delete category" type="image" src="icons/delete.png"  id="delFolder" >
+
+</div>
+
+<div  class="container1" id="container1" onscroll = "document.getElementById('audioDBack').style.display='none';document.getElementById('audioD').style.display='none';document.getElementById('myAudio').pause();"style="overflow: auto;z-index:-10;height:calc(100% - 70px);width:calc(100% - 10px);position:absolute; padding-right: 4px ;left:3px; top: 40px; "></div>
+
+<div class="custom-select" style="left:0px;text-align: center; position:fixed ; bottom: 1px; border-bottom-left-radius : 5px;border-bottom-right-radius : 5px;background-color: #363636;width:calc(100% - 5px);height: 27px;">
+<img class="menue" style="width:20px;opacity: 0.6;position:absolute;left: 1px;bottom: 4px;" title="Import" type="image" src="icons/import.png"  id="btn_import" >
+<input type="text"   class="menue" placeholder=" Search . . . " style="position:absolute;left: 24px;bottom: 3px; ;text-align: left; color: rgb(255, 255, 255); background-color: rgb(65, 65, 65); font-size: 10px; width: calc(100% - 90px);height: 22px;" type="button" id="myInput" onkeyup="searchKeyUp();" value=""  size="20">
+<!--<input class="menue" style="color: rgb(255, 255, 255); background-color: rgb(65, 65, 65); font-size: 10px; width: calc(100% - 60px);height: 25px;" type="button" value="MotionCodes" src="icons/texture-comp.png"  id="btn_MC" >-->
+<img class="menue" style="width:20px;opacity: 0.6;position:absolute;bottom: 4px;right: 41px;" title="Export" type="image" src="icons/backup1.png"  id="btn_backup" >
+
+
+
+<img class="menue" style="opacity: 0.8;width:20px;position:absolute;;bottom: 4px;right:21px;" title="Setting" type="image" onClick="$('#settingDiv').fadeIn(500);" src="icons/setting.png"  id="settingBtn" >
+
+<img class="menue" style="opacity: 0.8;width:20px;position:absolute;;bottom: 4px;right:1px;" title="Help" type="image" src="icons/help.png"  id="help" >
+
+
+
+
+</div>
+
+
+
+<div class="range-slider" style="position: fixed; left:-15px;bottom:25px;transform: scale(0.7);background-color: #363636;border-radius: 15px;">
+  <input class="range-slider__range" id="range-slider" type="range" step="20" value="110" min="50" max="300" style="width:100px;height: 3px;">
+</div> 
+
+
+
+<div class="custom-select" id="settingDiv" style="opacity:1; font:normal 10pt Arial;display:none;left:0px;text-align: left; position:fixed ; bottom: 30px;height: auto; border-top-left-radius : 10px;border-top-right-radius : 10px;background-color: #cccdcc;width:calc(100% - 5px);z-index: 9999999999999999999999999999;">
+  <img class="menue" onClick="$('#settingDiv').hide(500);" style="width:15px;position:absolute;right: 5px;top: 5px;" title="Close" type="image" src="icons/close.png"  id="closeSetting" >
+  <br>
+  <img class="menue" style="cursor: pointer;width:20px;margin-top:10px;top:5px;left:3px;position: relative;" title="Change packages folder" type="image" src="icons/folder1.png"  id="changeFolder" >
+  <span >Change Folder</span><br>
+  <input type="text" disabled style="left:20px;font:normal 8pt Arial;display: block; width:calc(100% - 30px);height:15px;position: relative;" id="packageFolder"  value="~/Documents"  size="200">
+  <input type="checkbox" checked id="changeThumb" name="changeThumb"  style="left:3px;position:relative; cursor: pointer;" title="Show/ Hide Thumbnails">
+  <label for="changeThumb"  title="Show/ Hide Thumbnails">Thumbnails</label><br>
+  
+  <hr>
+                    Saving preview:<br>
+                      <input type="radio" onClick="setSettings(this.value);" id="No" name="preview" value="No">
+                      <label for="No">No thumbnail</label><br>
+                      <input type="radio"  onClick="setSettings(this.value);" id="Still" name="preview" value="Still">
+                      <label for="Still">Still Preview</label><br>
+                      <input type="radio"  checked onClick="setSettings(this.value);" id="Live" name="preview" value="Live"> 
+                      <label for="Live">Live: max</label>
+                    <input type="text" id="pTime" onChange="if (isNaN(this.value)){alert('Value is undefined');this.value=3;localStorage.setItem('pTime',3);return;};if(parseInt(this.value)>=10){alert('Max duration time for preview is 9 secends.');this.value=9;return;};localStorage.setItem('pTime',parseInt(this.value));" name="preview" style="width:15px;height:20px;" value="3"> s<hr>
+                    <input type="checkbox"  onClick="setSettings(localStorage.getItem('preview'));" id="saveFont" name="mFont" chacked><label for="saveFont">Collect Fonts</label>
+
+                    <br> 
+                    <br>
+  <input class="menue" id="resetSettings" style="border-radius: 2px;border: 1px solid rgb(30, 30, 30);width:calc(100% - 10px);height: 20px; font:normal 8pt Arial;left: 5px;bottom: 5px; position: relative;text-align: left;background-color: salmon; " type="button"  value="Reset Setting">
+  <br>
+</div>
+
+
+  <br>
+<input type="text"  style="display: none; width:500px;height:25px;" id="test"  value="0"  size="200">
+
+<input type="text"  style="display: none; width:500px;height:25px;" id="saveName"  value="0"  size="200">
+
+</body>
+
+
+<!-- Once the page is loaded, initalize the plug-in. -->
+<script type="text/javascript">
+  window.onload = function () {
+    var wookmark1 = new Wookmark('#wookmark1', {
+        outerOffset: 10, // Optional, the distance to the containers border
+        itemWidth: 100+10 // Optional, the width of a grid item
+    });
+
+  };
+</script>
+
+<script src="js/libs/CSInterface.js"></script>
+<script src="js/libs/jquery-1.9.1.min.js"></script>
+<script src="js/aesp.js"></script>
+<script src="js/main.js"></script>
+<script src="wookmark.js"></script>
+
+</html>
